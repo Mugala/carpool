@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'drivers',
     'riders',
     'bootstrap3',
+    'carpool',
 ]
 
 MIDDLEWARE = [
