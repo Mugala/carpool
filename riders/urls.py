@@ -2,5 +2,5 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url('^riders/$', views.welcome, name = "welcome"),
+    url('^riders/$', views.welcome, name = "rwelcome"),
 ]
