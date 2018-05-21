@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar" style="background-color: cornsilk">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'dwelcome'%}">Drivers</a>
-      <a class="navbar-brand" href="{% url 'rwelcome'%}">Riders</a>
+      <a class="navbar-brand" href="{% url 'dwelcome'%}">Sign in: Driver</a>
+      <a class="navbar-brand" href="{% url 'rwelcome'%}">Sign in: Rider</a>
+    </div>
+    <div style="float: right">
+        <a class="navbar-brand" href="/accounts/register">Create Account</a>
     </div>
   </div>
 </nav>

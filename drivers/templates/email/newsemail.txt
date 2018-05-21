@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to the Carpool newsletter You will find the most exciting news about Carpool inc.

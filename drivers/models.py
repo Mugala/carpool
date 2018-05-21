@@ -53,6 +53,9 @@ class Driver (models.Model):
     def save_Driver (self):
         self.save()
 
+    def delete_Driver(self):
+        self.delete()
+
     @classmethod
     def driver_details(cls):
         details = cls.objects.all()

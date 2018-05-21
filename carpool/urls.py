@@ -15,16 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from . import views
+from . import dviews
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('^$', views.welcome, name = "welcome"),
+    url('^$', dviews.welcome, name = "welcome"),
     url(r'', include ("drivers.urls")),
     url(r'', include ("riders.urls")),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+     url(r'^logout/$', views.logout, {"next_page": '/'}),
 ]
 
 

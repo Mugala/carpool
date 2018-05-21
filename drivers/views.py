@@ -2,10 +2,14 @@ from django.shortcuts import render
 from django.http import  HttpResponse,Http404,HttpResponseRedirect
 from .models import Car,Pickup_location,Driver,NewsLetterRecipients
 from .forms import NewsLetterForm
+from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
 
+@login_required(login_url='/accounts/login/')
 def welcome(request):
     details = Driver.driver_details()
     if request.method == 'POST':
@@ -15,7 +19,12 @@ def welcome(request):
             email = form.cleaned_data['email']
             recipient = NewsLetterRecipients(name = name,email =email)
             recipient.save()
-            HttpResponseRedirect('home')
+
+            recipient = NewsLetterRecipients(name = name,email =email)
+            recipient.save()
+            send_welcome_email(name,email)
+
+            HttpResponseRedirect('dwelcome')
     else:
         form = NewsLetterForm()     
     return render (request, "dwelcome.html",{"details":details, "letterForm":form})
