@@ -8,7 +8,23 @@ class NewsLetterForm(forms.Form):
 class DriverProfile(forms.ModelForm):
     class Meta:
         model = Driver
-        fields = ['first_name', 'last_name', 'profile_pic', 'phone_number']
-        exclude = ['user']
+        fields = ['first_name', 'last_name', 'profile_pic', 'phone_number',]
+        exclude = ['user', ]
 
+
+class CarDetails(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ['Car_model', 'number_plate', 'number_seats',]
+        exclude = ['user', 'car']
+     
+
+class SheduleForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ['Car_model', 'number_plate', 'number_seats',]
+        exclude = ['user',]
     
+        model = Destination
+        fields = ['name',]
+        exclude = ['user',]

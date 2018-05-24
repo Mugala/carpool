@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import  HttpResponse,Http404,HttpResponseRedirect
 from .models import Car,Pickup_location,Driver,NewsLetterRecipients
-from .forms import NewsLetterForm,DriverProfile
+from .forms import NewsLetterForm,DriverProfile,CarDetails,SheduleForm
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 
@@ -38,11 +38,38 @@ def user_profile(request):
             profile.user = current_user
             profile.save()
 
-            return redirect("home")
+            return redirect("car_profile")
     else:
         form = DriverProfile()
-    return render (request, 'all-photos/edit_profile.html',{"form":form})
+    return render (request, 'dtemp/driver_profile.html',{"form":form})
 
+# def register_car(request):  
+#     current_user = request.user
+#     if request.method =='POST':
+#         form = CarDetails(request.POST, request.FILES)
+#         if form.is_valid():
+#             carProfile = form.save(commit=False)
+#             carProfile.user = current_user
+#             carProfile.save()
+
+#             return redirect("dwelcome")
+#     else:
+#         carform = CarDetails()
+#     return render (request, 'dtemp/car_profile.html',{"carform":carform})
+
+# def schedule_ride (request):  
+#     current_user = request.user
+#     if request.method =='POST':
+#         form = SheduleForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             sProfile = form.save(commit=False)
+#             sProfile.user = current_user
+#             sProfile.save()
+
+#             return redirect("home")
+#     else:
+#         sheduleform = SheduleForm()
+#     return render (request, 'dtemp/shedules.html',{"scheduleform":sheduleform})
 
 def search_results(request):
 

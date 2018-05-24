@@ -29,7 +29,12 @@
       <h2 class="text-center">No registered driver</h2>
     </div>
     {% endfor %}
+
+    <div>
+      <a class="navbar-brand" href="{% url 'driver_profile' %}">Create your Profile</a>
+      <a class="navbar-brand" href="{% url 'schedule_ride' %}">Schedule Destination</a>
+    </div>
   
-  </div>
+  </div>  
  
   {% endblock %} 

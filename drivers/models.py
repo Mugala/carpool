@@ -14,7 +14,7 @@ class Destination(models.Model):
     def __str__(self):
         return self.name
 
-    def save_Drivertag(self):
+    def save_Destination(self):
         self.save()
 
 class Car (models.Model):
@@ -41,9 +41,9 @@ class Pickup_location(models.Model):
 class Driver (models.Model):
     first_name = models.CharField(max_length = 30)
     last_name = models.CharField(max_length = 30)
-    pickup_point = models.ForeignKey(Pickup_location)
-    destination = models.OneToOneField(Destination)
-    car = models.ForeignKey(Car)
+    pickup_point = models.ForeignKey(Pickup_location, null=True)
+    destination = models.OneToOneField(Destination, null = True)
+    car = models.ForeignKey(Car, null =True)
     profile_pic = models.ImageField(upload_to = 'driversdp/',null=True)
     phone_number = models.IntegerField()
 
