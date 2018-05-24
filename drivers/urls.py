@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^search/', views.search_results, name='search_results'),
     url('^accounts/profile/', views.user_profile, name = 'driver_profile'),
     url('^accounts/car_profile/', views.register_car, name = 'car_profile'),
-    # url('^accounts/schedule_ride/', views.schedule_ride, name = 'schedule_ride'),
+    url('^accounts/schedule_ride/', views.schedule_ride, name = 'schedule_ride'),
 ]
 
 if settings.DEBUG:

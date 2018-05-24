@@ -57,19 +57,19 @@ def register_car(request):
         carform = CarDetails()
     return render (request, 'dtemp/car_profile.html',{"carform":carform})
 
-# def schedule_ride (request):  
-#     current_user = request.user
-#     if request.method =='POST':
-#         form = SheduleForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             sProfile = form.save(commit=False)
-#             sProfile.user = current_user
-#             sProfile.save()
+def schedule_ride (request):  
+    current_user = request.user
+    if request.method =='POST':
+        form = SheduleForm(request.POST, request.FILES)
+        if form.is_valid():
+            sProfile = form.save(commit=False)
+            sProfile.user = current_user
+            sProfile.save()
 
-#             return redirect("home")
-#     else:
-#         sheduleform = SheduleForm()
-#     return render (request, 'dtemp/shedules.html',{"scheduleform":sheduleform})
+            return redirect("home")
+    else:
+        sheduleform = SheduleForm()
+    return render (request, 'dtemp/shedules.html',{"scheduleform":sheduleform})
 
 def search_results(request):
 
