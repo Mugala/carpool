@@ -43,19 +43,19 @@ def user_profile(request):
         form = DriverProfile()
     return render (request, 'dtemp/driver_profile.html',{"form":form})
 
-# def register_car(request):  
-#     current_user = request.user
-#     if request.method =='POST':
-#         form = CarDetails(request.POST, request.FILES)
-#         if form.is_valid():
-#             carProfile = form.save(commit=False)
-#             carProfile.user = current_user
-#             carProfile.save()
+def register_car(request):  
+    current_user = request.user
+    if request.method =='POST':
+        form = CarDetails(request.POST, request.FILES)
+        if form.is_valid():
+            carProfile = form.save(commit=False)
+            carProfile.user = current_user
+            carProfile.save()
 
-#             return redirect("dwelcome")
-#     else:
-#         carform = CarDetails()
-#     return render (request, 'dtemp/car_profile.html',{"carform":carform})
+            return redirect("dwelcome")
+    else:
+        carform = CarDetails()
+    return render (request, 'dtemp/car_profile.html',{"carform":carform})
 
 # def schedule_ride (request):  
 #     current_user = request.user
