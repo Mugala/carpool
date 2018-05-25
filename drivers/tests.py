@@ -1,24 +1,28 @@
 from django.test import TestCase
+from .models import Car,Destination,Pickup_location,Driver
 
 # Create your tests here.
 
-# class ArticleTestClass(TestCase):
+class DriverTestClass(TestCase):
+    def setUp(self):
+        self.pickup_point = Pickup_location(longitude = 36.00000, latitude = 1.00000 )
+        self.pickup_point.save()
+        self.car = Car (Car_model = "Lambo",number_plate = "KAA 001B",number_seats = 2)
+        self.car.save()
+        self.destination = Destination (name = "Westlands")
+        self.destination.save()
+        self.driver1 = Driver(first_name = 'Frank', last_name = 'Fr', pickup_point = self.pickup_point, destination = self.destination, car = self.car, profile_pic = '2018-05-06',phone_number = 7259854123)
+        self.driver1.save_Driver()
+        
 
-#     def setUp(self):
-#         # Creating a new editor and saving it
-#         self.james= Editor(first_name = 'James', last_name ='Muriuki', email ='james@moringaschool.com')
-#         self.james.save_editor()
+    # def tearDown(self):
+    #     Driver.objects.all().delete()
+    #     Car.objects.all().delete()
+    #     Destination.objects.all().delete()
+    #     Pickup_location.objects.all().delete()
 
-#         # Creating a new tag and saving it
-#         self.new_tag = tags(name = 'testing')
-#         self.new_tag.save()
+    def test_instance(self):
+        self.assertTrue(isinstance(self.driver1,Driver))
 
-#         self.new_article= Article(title = 'Test Article',post = 'This is a random test Post',editor = self.james)
-#         self.new_article.save()
-
-#         self.new_article.tags.add(self.new_tag)
-
-#     def tearDown(self):
-#         Editor.objects.all().delete()
-#         tags.objects.all().delete()
-#         Article.objects.all().delete()
+#     def test_instance(self):
+#         self.assertTrue(isinstance(self.img1,Image))

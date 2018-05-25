@@ -66,7 +66,7 @@ def schedule_ride (request):
             sProfile.user = current_user
             sProfile.save()
 
-            return redirect("home")
+            return redirect("dwelcome")
     else:
         sheduleform = SheduleForm()
     return render (request, 'dtemp/shedules.html',{"scheduleform":sheduleform})

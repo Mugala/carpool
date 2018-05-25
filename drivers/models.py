@@ -16,6 +16,9 @@ class Destination(models.Model):
 
     def save_Destination(self):
         self.save()
+    
+    def delete_Driver(self):
+        self.delete()
 
 class Car (models.Model):
     Car_model = models.CharField(max_length = 30)
@@ -28,6 +31,9 @@ class Car (models.Model):
     def save_Car(self):
         self.save()
 
+    def delete_Driver(self):
+        self.delete()
+
 class Pickup_location(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
@@ -37,6 +43,9 @@ class Pickup_location(models.Model):
 
     def save_Pickup_location(self):
         self.save()
+    
+    def delete_Driver(self):
+        self.delete()
 
 class Driver (models.Model):
     first_name = models.CharField(max_length = 30)
@@ -60,6 +69,7 @@ class Driver (models.Model):
     def driver_details(cls):
         details = cls.objects.all()
         return details
+        
 
     @classmethod
     def search_by_destination(cls,search_term):

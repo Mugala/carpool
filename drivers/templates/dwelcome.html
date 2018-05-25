@@ -12,6 +12,12 @@
         {% bootstrap_form letterForm %}
         <input type="submit" value="Subscribe">
       </form>
+    
+      <div class="row">
+        <div>
+          <a class="navbar-brand" href="{% url 'driver_profile' %}">Create your Profile</a>
+        </div>
+      </div>
 
     <!-- Looping through details   -->
     {% for detail in details %} 
@@ -19,7 +25,7 @@
     <div class="row">
       <!-- displaying details -->
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <h2 class="text-center"> {{ detail.destination }} </h2>
+        <a class="text-center" class="navbar-brand" href="{% url 'schedule_ride' %}"> {{ detail.first_name }} </a>
       </div>
   
     </div>
@@ -29,11 +35,6 @@
       <h2 class="text-center">No registered driver</h2>
     </div>
     {% endfor %}
-
-    <div>
-      <a class="navbar-brand" href="{% url 'driver_profile' %}">Create your Profile</a>
-      <a class="navbar-brand" href="{% url 'schedule_ride' %}">Schedule Destination</a>
-    </div>
   
   </div>  
  
